@@ -74,7 +74,5 @@ abstract class CuentaBancaria {
         }else{
             System.out.println("Su saldo es insuficiente para realizar este retiro");
         }
-
-
     }
 }
