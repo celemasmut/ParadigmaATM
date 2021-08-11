@@ -41,7 +41,8 @@ abstract class CuentaBancaria {
         System.out.println("3 - $20000");
         System.out.println("4 - $50000");
         System.out.println("5 - $100000");
-        return 5;
+        System.out.println("6 - o puede ingresar el valor que desee retirar");
+        return 6;
     }
 
     public Double opcionesARetirar(int opcion){

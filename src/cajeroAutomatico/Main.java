@@ -72,10 +72,15 @@ public class Main {
                     miCuenta.mostrarSaldo();
                     break;
                 case 3:
-                    miCuenta.mostrarOpciones();
+                    Double montoARetirar;
                     int opcionElegida = capturarInt(miCuenta.mostrarOpciones());
-                    Double montoARetirar = miCuenta.opcionesARetirar(opcionElegida);
-                    miCuenta.extraerDinero(montoARetirar);
+                    if(opcionElegida == 6){
+                        montoARetirar = capturarDouble();
+                        miCuenta.extraerDinero(montoARetirar);
+                    }else{
+                         montoARetirar= miCuenta.opcionesARetirar(opcionElegida);
+                        miCuenta.extraerDinero(montoARetirar);
+                    }
                     break;
                 case 4:
                     salir = true;
