@@ -1,12 +1,22 @@
 package cajeroAutomatico;
 
-abstract class CuentaBancaria {
+abstract class CuentaBancaria implements ITransaccion{
     private Double saldo;
     private String cbu;
+    private TipoMoneda tipoDeMoneda;
 
-    public CuentaBancaria(Double saldo, String cbu) {
+    public CuentaBancaria(Double saldo, String cbu, TipoMoneda tipoDeMoneda) {
         this.saldo = saldo;
         this.cbu =cbu;
+        this.tipoDeMoneda = tipoDeMoneda;
+    }
+
+    public TipoMoneda getTipoDeMoneda() {
+        return tipoDeMoneda;
+    }
+
+    public void setTipoDeMoneda(TipoMoneda tipoDeMoneda) {
+        this.tipoDeMoneda = tipoDeMoneda;
     }
 
     public Double getSaldo() {
@@ -28,11 +38,7 @@ abstract class CuentaBancaria {
     public void mostrarSaldo(){
         System.out.println("Tu saldo es " + saldo);
     }
-
-    public void depositarvalor (Double valorADepositar){
-        saldo = saldo + valorADepositar;
-        System.out.println("Tu nuevo saldo es de: "+saldo);
-    }
+    
 
     public int mostrarOpciones(){
         System.out.println("Seleccione la opcion a retirar");
@@ -43,6 +49,13 @@ abstract class CuentaBancaria {
         System.out.println("5 - $100000");
         System.out.println("6 - o puede ingresar el valor que desee retirar");
         return 6;
+    }
+    
+    public int opcionDeMoneda(){
+        System.out.println("Seleccione la moneda que desea");
+        System.out.println("1 - Pesos");
+        System.out.println("2 - Dolar");
+        return 2;
     }
 
     public Double opcionesARetirar(int opcion){
@@ -67,12 +80,13 @@ abstract class CuentaBancaria {
         return montoElegido;
     }
 
-    public void extraerDinero( Double extrae){
+  /*  public void extraerDinero( Double extrae, TipoMoneda moneda){
+        if(moneda.equals())
         if((saldo - extrae) > 0){
             saldo-=extrae;
             System.out.println("Extracción realizada, su saldo ahora es de : "+ saldo);
         }else{
             System.out.println("Su saldo es insuficiente para realizar este retiro");
         }
-    }
+    }*/
 }

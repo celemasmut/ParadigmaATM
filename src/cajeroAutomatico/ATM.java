@@ -13,40 +13,23 @@ public class ATM {
     
     public void menu(){
         boolean salir = false;
+        CuentaBancaria bankAccount;
         do {
-
             System.out.println("Elija la cuenta a la que desea ingresar:");
             System.out.println("1 - Caja de Ahorro en Pesos");
             System.out.println("2 - Caja de Ahorro en Dólares");
             System.out.println("3 - Cuenta Corriente");
-            System.out.println("4 - Cambiar contraseña");
-            System.out.println("5 - Salir");
-
-            int opcion = capturarInt(5);
-
-            switch (opcion) {
-                case 1:
-                    cuentaElegida(miUsuario.getMisPesos());
-                    break;
-                case 2:
-                    cuentaElegida(miUsuario.getMisDolares());
-                    break;
-                case 3:
-                    cuentaElegida(miUsuario.getMiCuentaCorriente());
-                    break;
-                case 4:
-                    cambiarContrasenia(miUsuario);
-                    break;
-                case 5:
-                    salir = true;
-                    System.out.println("Vuelva pronto");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-                    break;
+            System.out.println("4 - Salir");
+            int opcion = capturarInt(4);
+            CuentaFactory miCuenta = new CuentaFactory();
+            bankAccount = miCuenta.creadorDeCuenta(opcion);
+            if(bankAccount == null){
+                salir = true;
+            }else{
+                cuentaElegida(bankAccount);
             }
-
         } while (!salir);
+
     }
 
     public void cuentaElegida(CuentaBancaria miCuenta){
@@ -66,7 +49,8 @@ public class ATM {
                 case 2:
                     System.out.println("Ingrese valor a depositar");
                     double valorADepositar = capturarDouble();
-                    miCuenta.depositarvalor(valorADepositar);
+                    TipoMoneda monedaElegida = seleccionDeMoneda(miCuenta);
+                    miCuenta.depositarValor(valorADepositar, monedaElegida);
                     miCuenta.mostrarSaldo();
                     break;
                 case 3:
@@ -88,6 +72,21 @@ public class ATM {
             }
         }while(!salir);
 
+    }
+    
+    public TipoMoneda seleccionDeMoneda(CuentaBancaria miCuenta){
+        TipoMoneda miMoneda= null;
+        
+        int opcion = capturarInt(miCuenta.opcionDeMoneda());
+        switch (opcion){
+            case 1:
+                miMoneda = TipoMoneda.PESOS;
+                break;
+            case 2:
+                miMoneda = TipoMoneda.DOLARES;
+                break;
+        }
+        return miMoneda;
     }
 
     public void cambiarContrasenia(Usuario miUsuario){
@@ -114,7 +113,7 @@ public class ATM {
                     entrada = -1;
                 }
             }catch (InputMismatchException e){
-                System.out.println("Ingrese opcion valida:");
+                System.out.println("Ingrese opción valida:");
                 scan.next();
                 entrada = -1;
             }
