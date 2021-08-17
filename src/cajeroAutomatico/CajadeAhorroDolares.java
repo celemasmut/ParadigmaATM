@@ -8,7 +8,7 @@ public class CajadeAhorroDolares extends CuentaBancaria{
     }
 
     public void mostrarSaldo(){
-        System.out.println("Tu saldo de Caja de ahorro en dolares es de  " + super.getSaldo());
+        System.out.println("Tu saldo de Caja de ahorro en dólares es de USD" + super.getSaldo());
     }
 
     @Override
@@ -22,6 +22,11 @@ public class CajadeAhorroDolares extends CuentaBancaria{
 
     @Override
     public void extraerDinero(Double extrae) {
-        //TODO
+        if((super.getSaldo() - extrae * 1.3) > 0){
+            super.setSaldo(super.getSaldo() - extrae * 1.3);
+            System.out.println("Extracción realizada, su saldo ahora es de: "+ super.getSaldo());
+        }else{
+            System.out.println("Su saldo es insuficiente para realizar este retiro. Recuerde que se cobra el impuesto solidario de 30%");
+        }
     }
 }
