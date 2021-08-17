@@ -47,9 +47,9 @@ public class ATM {
                     miCuenta.mostrarSaldo();
                     break;
                 case 2:
+                    TipoMoneda monedaElegida = seleccionDeMoneda(miCuenta);
                     System.out.println("Ingrese valor a depositar");
                     double valorADepositar = capturarDouble();
-                    TipoMoneda monedaElegida = seleccionDeMoneda(miCuenta);
                     miCuenta.depositarValor(valorADepositar, monedaElegida);
                     miCuenta.mostrarSaldo();
                     break;
@@ -66,6 +66,7 @@ public class ATM {
                     break;
                 case 4:
                     salir = true;
+                    break;
                 default:
                     System.out.println("Opción inválida");
                     break;

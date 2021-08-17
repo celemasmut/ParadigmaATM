@@ -34,23 +34,17 @@ public class CuentaCorriente extends CuentaBancaria{
         }
     }
 
+    //la extracción de Cuenta corriente tiene una comisión de 0.3%
     @Override
     public void extraerDinero(Double extrae) {
-        if ((super.getSaldo() - extrae) >= topeNegativo) {
-            super.setSaldo(super.getSaldo() - extrae);
-            System.out.println("Extracción realizada, su saldo ahora es de : " + super.getSaldo());
+        double totalDebitado= extrae * 1.3;
+        if ((super.getSaldo() - totalDebitado) >= topeNegativo) {
+            super.setSaldo(super.getSaldo() - totalDebitado);
+            System.out.println("Extracción realizada");
+            System.out.println("Su comision por la extraccion es del 0.3, su saldo en la cuenta es de : $"+super.getSaldo());
         } else {
             System.out.println("Su saldo es insuficiente para realizar este retiro");
         }
     }
 
-   /* @Override
-    public void extraerDinero(Double extrae){
-        if((super.getSaldo() - extrae) >= topeNegativo){
-            super.setSaldo(super.getSaldo() - extrae);
-            System.out.println("Extracción realizada, su saldo ahora es de : "+ super.getSaldo());
-        }else{
-            System.out.println("Su saldo es insuficiente para realizar este retiro");
-        }
-    }*/
 }

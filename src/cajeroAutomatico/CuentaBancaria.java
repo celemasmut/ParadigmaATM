@@ -80,13 +80,4 @@ abstract class CuentaBancaria implements ITransaccion{
         return montoElegido;
     }
 
-  /*  public void extraerDinero( Double extrae, TipoMoneda moneda){
-        if(moneda.equals())
-        if((saldo - extrae) > 0){
-            saldo-=extrae;
-            System.out.println("Extracción realizada, su saldo ahora es de : "+ saldo);
-        }else{
-            System.out.println("Su saldo es insuficiente para realizar este retiro");
-        }
-    }*/
 }
