@@ -22,7 +22,9 @@ public class CuentaCorriente extends CuentaBancaria{
 
 
     public void mostrarSaldo(){
+
         System.out.println("Tu saldo de cuenta corriente es de: " + super.getSaldo());
+        System.out.println("Tu tope a retirar es de : $" + getTopeNegativo());
     }
 
     @Override
@@ -46,5 +48,4 @@ public class CuentaCorriente extends CuentaBancaria{
             System.out.println("Su saldo es insuficiente para realizar este retiro");
         }
     }
-
 }

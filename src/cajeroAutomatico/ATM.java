@@ -57,6 +57,7 @@ public class ATM {
                     Double montoARetirar;
                     int opcionElegida = capturarInt(miCuenta.mostrarOpciones());
                     if(opcionElegida == 6){
+                        System.out.println("Ingrese el monto que desee retirar ");
                         montoARetirar = capturarDouble();
                         miCuenta.extraerDinero(montoARetirar);
                     }else{
