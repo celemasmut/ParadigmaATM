@@ -5,10 +5,12 @@ public class CuentaCorriente extends CuentaBancaria{
     // saldo negativo
     private Double topeNegativo;
 
+
     public CuentaCorriente(Double saldo, String cbu, Double topeNegativo,TipoMoneda tipoMoneda){
 
         super(saldo,cbu,tipoMoneda);
         this.topeNegativo=topeNegativo;
+
     }
 
     public Double getTopeNegativo() {
@@ -30,7 +32,7 @@ public class CuentaCorriente extends CuentaBancaria{
     @Override
     public void depositarValor(Double deposita, TipoMoneda moneda) {
         if(moneda.equals(getTipoDeMoneda())){
-            super.setSaldo(getSaldo() - deposita);
+            super.setSaldo(getSaldo() + deposita);
         } else {
             System.out.println("Error en el tipo de moneda.");
         }

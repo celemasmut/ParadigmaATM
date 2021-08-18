@@ -15,7 +15,7 @@ public class CuentaFactory {
             case 3:
                 cuentaElegida= new CuentaCorriente(10000.00,"1234567891234567891234",-20000.00,TipoMoneda.PESOS);
                 break;
-            default:
+            case 5:
                 System.out.println("Vuelva pronto");
                 break;
         }

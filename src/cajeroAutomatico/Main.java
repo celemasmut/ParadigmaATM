@@ -9,6 +9,5 @@ public class Main {
         
         ATM atm = new ATM(new Usuario("Indi", "123",null,null,null));
         atm.menu();
-        
     }
 }

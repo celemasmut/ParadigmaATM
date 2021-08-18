@@ -80,4 +80,8 @@ abstract class CuentaBancaria implements ITransaccion{
         return montoElegido;
     }
 
+    public CuentaBancaria getInstance(){
+        return this;
+    }
+
 }
