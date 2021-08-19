@@ -47,7 +47,6 @@ public class ATM {
             System.out.println("2 - Depositar valor");
             System.out.println("3 - Retirar valor");
             System.out.println("4 - Salir de la cuenta");
-
             opcion = capturarInt(4);
 
             switch (opcion) {
