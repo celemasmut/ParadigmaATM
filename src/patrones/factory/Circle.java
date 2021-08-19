@@ -1,0 +1,12 @@
+package patrones.factory;
+
+public class Circle implements Shape {
+
+
+    @Override
+    public void draw() {
+        System.out.println("Soy un circulo");
+    }
+
+
+}
